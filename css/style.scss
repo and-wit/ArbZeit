@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+
+    outline: none;
+
+    user-select: none;
+
+
+    button{
+      cursor: pointer;
+    }
+}
+
+.kalender_frame{
+  display: grid;
+  grid-template-columns: 2fr 7fr;
+  margin: 0 auto;
+  max-width: 80%;
+  border-radius: 2rem;
+  box-shadow: 2px 2px 10px lightgray;
+
+  .links{
+    background-color: green;
+    border-radius: 2rem 0 0 2rem;
+    padding: 1rem;
+
+    *{
+      color: whitesmoke;
+    }
+
+    .menu{
+      display: block;
+      height: 2rem;      
+    }
+
+    .tag{
+      display: block;
+      height: 6rem;
+
+      span{
+        display: block;
+        text-align: center;
+      }
+
+      .tag_nummer{
+        font-weight: bold;
+        font-size: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+      }
+
+      .tag_wochentag{
+        text-transform: uppercase;
+        font-size: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+      }
+    }
+
+    .ubersicht{
+      // background-color: lightblue;
+      padding: 1rem 0.5rem;
+
+      .ubersicht_zeile{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        
+        div{
+          font-size: 0.8rem;
+        }
+
+        div:last-child{
+          text-align: right;
+        }
+        
+      }
+    }
+
+    .befehle{
+
+    
+      .befehl_zeile{
+        display: block;
+        text-align: right;
+        margin-top: 1rem;
+
+        .befehl_btn{
+          width: 2rem;
+          height: 2rem;
+          border-radius: 20rem;
+          border: 1px solid whitesmoke;
+
+          color: rgb(180, 180, 180);
+          background-color: green;
+          transition: background-color 0.3s, color 0.3s, letter-spacing 0.3s;
+          
+          
+          &:hover, &:active{
+            background-color: green;
+            color: white;
+            // letter-spacing: 2px;
+            font-weight: bold;
+          }
+
+        }
+      }
+
+
+    }
+  }
+
+  .rechts{
+    background-color: whitesmoke;
+    border-radius: 0 2rem 2rem 0;
+    padding: 1rem;
+
+    .jahr_auswahl{
+      text-align: right;
+
+      .jahr_minus, .jahr_plus{
+        height: 4rem;
+        width: 4rem;
+        font-size: 2rem;
+        border-radius: 5rem;
+        background-color: whitesmoke;
+        border: 3px solid transparent;
+        color: rgb(200, 200, 200);
+        transition: background-color 0.3s, border 0.3s, color 0.3s;
+        cursor: pointer;
+
+        &:hover{
+          background-color: rgb(210, 210, 210);
+          border: rgb(50,50,50);
+          color: rgb(50,50,50);
+        }
+      }
+
+      .jahr_zahl{
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        color: rgb(180, 180, 180);
+      }
+    }
+
+    .monat_auswahl{
+      margin-top: 1rem;
+      padding: 0.5rem 0 0.3rem 0;
+      display: grid;
+      gap: 0.2rem;
+      grid-template-columns: repeat(6,1fr);
+      border-bottom: 2px solid rgb(180, 180, 180);
+
+      .monat{
+        padding: 0.4rem;
+        border: none;
+        
+        color: rgb(180, 180, 180);
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+          
+          
+        &:hover, &.active{
+          background-color: green;
+          color: whitesmoke;
+        }
+      }
+
+    }
+
+    .woche_head{
+      display: grid;
+      grid-template-columns: repeat(7,1fr);
+
+      span{
+        display: block;
+        padding: 0.4rem;
+        text-align: center;
+        font-weight: bold;
+        
+      }
+    }
+
+    .tabelle_tage{
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      gap: 0.4rem;
+      
+      .tabelle_einzel_tag{
+        height: 3rem;
+        width: 3rem;
+        margin: 0 auto;
+        
+        .tabelle_tag_text{
+          position: relative;
+          text-align: center;
+          width: 100%;
+          height: 100%;
+          line-height: 3rem;
+          border-radius: 20rem;
+          transition: background-color 0.3s, color 0.3s;
+          cursor: pointer;
+          
+          &:hover, &.active{
+              background-color: green;
+              color: whitesmoke;
+          }          
+
+          &.marker::after{
+            display: block;
+            content: " ";
+            position: absolute;
+            top: 0.3rem;
+            right: -0.3rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: green;
+          }
+        }
+      }
+    }
+            
+  }
+}
+

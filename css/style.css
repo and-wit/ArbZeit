@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+* button {
+  cursor: pointer;
+}
+
+.kalender_frame {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 7fr;
+      grid-template-columns: 2fr 7fr;
+  margin: 0 auto;
+  max-width: 80%;
+  border-radius: 2rem;
+  -webkit-box-shadow: 2px 2px 10px lightgray;
+          box-shadow: 2px 2px 10px lightgray;
+}
+
+.kalender_frame .links {
+  background-color: green;
+  border-radius: 2rem 0 0 2rem;
+  padding: 1rem;
+}
+
+.kalender_frame .links * {
+  color: whitesmoke;
+}
+
+.kalender_frame .links .menu {
+  display: block;
+  height: 2rem;
+}
+
+.kalender_frame .links .tag {
+  display: block;
+  height: 6rem;
+}
+
+.kalender_frame .links .tag span {
+  display: block;
+  text-align: center;
+}
+
+.kalender_frame .links .tag .tag_nummer {
+  font-weight: bold;
+  font-size: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.kalender_frame .links .tag .tag_wochentag {
+  text-transform: uppercase;
+  font-size: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+
+.kalender_frame .links .ubersicht {
+  padding: 1rem 0.5rem;
+}
+
+.kalender_frame .links .ubersicht .ubersicht_zeile {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+}
+
+.kalender_frame .links .ubersicht .ubersicht_zeile div {
+  font-size: 0.8rem;
+}
+
+.kalender_frame .links .ubersicht .ubersicht_zeile div:last-child {
+  text-align: right;
+}
+
+.kalender_frame .links .befehle .befehl_zeile {
+  display: block;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.kalender_frame .links .befehle .befehl_zeile .befehl_btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20rem;
+  border: 1px solid whitesmoke;
+  color: #b4b4b4;
+  background-color: green;
+  -webkit-transition: background-color 0.3s, color 0.3s, letter-spacing 0.3s;
+  transition: background-color 0.3s, color 0.3s, letter-spacing 0.3s;
+}
+
+.kalender_frame .links .befehle .befehl_zeile .befehl_btn:hover, .kalender_frame .links .befehle .befehl_zeile .befehl_btn:active {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.kalender_frame .rechts {
+  background-color: whitesmoke;
+  border-radius: 0 2rem 2rem 0;
+  padding: 1rem;
+}
+
+.kalender_frame .rechts .jahr_auswahl {
+  text-align: right;
+}
+
+.kalender_frame .rechts .jahr_auswahl .jahr_minus, .kalender_frame .rechts .jahr_auswahl .jahr_plus {
+  height: 4rem;
+  width: 4rem;
+  font-size: 2rem;
+  border-radius: 5rem;
+  background-color: whitesmoke;
+  border: 3px solid transparent;
+  color: #c8c8c8;
+  -webkit-transition: background-color 0.3s, border 0.3s, color 0.3s;
+  transition: background-color 0.3s, border 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.kalender_frame .rechts .jahr_auswahl .jahr_minus:hover, .kalender_frame .rechts .jahr_auswahl .jahr_plus:hover {
+  background-color: #d2d2d2;
+  border: #323232;
+  color: #323232;
+}
+
+.kalender_frame .rechts .jahr_auswahl .jahr_zahl {
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  color: #b4b4b4;
+}
+
+.kalender_frame .rechts .monat_auswahl {
+  margin-top: 1rem;
+  padding: 0.5rem 0 0.3rem 0;
+  display: -ms-grid;
+  display: grid;
+  gap: 0.2rem;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  border-bottom: 2px solid #b4b4b4;
+}
+
+.kalender_frame .rechts .monat_auswahl .monat {
+  padding: 0.4rem;
+  border: none;
+  color: #b4b4b4;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.kalender_frame .rechts .monat_auswahl .monat:hover, .kalender_frame .rechts .monat_auswahl .monat.active {
+  background-color: green;
+  color: whitesmoke;
+}
+
+.kalender_frame .rechts .woche_head {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+}
+
+.kalender_frame .rechts .woche_head span {
+  display: block;
+  padding: 0.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.kalender_frame .rechts .tabelle_tage {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  -ms-grid-rows: (1fr)[6];
+      grid-template-rows: repeat(6, 1fr);
+  gap: 0.4rem;
+}
+
+.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag {
+  height: 3rem;
+  width: 3rem;
+  margin: 0 auto;
+}
+
+.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  line-height: 3rem;
+  border-radius: 20rem;
+  -webkit-transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text:hover, .kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text.active {
+  background-color: green;
+  color: whitesmoke;
+}
+
+.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text.marker::after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0.3rem;
+  right: -0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: green;
+}
+/*# sourceMappingURL=style.css.map */
