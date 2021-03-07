@@ -1,8 +1,3 @@
-window.Kalender = {
-    data: [1,2,3,4,5],
-    function: function() {console.log("Function from Kalender")}
-};
-
 class Kalender{
     
     arr_monate = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
@@ -17,26 +12,51 @@ class Kalender{
         this.jahr = this.datum.getFullYear();
         this.monat = this.datum.getMonth();
         this.tag = this.datum.getDate();
-
+        
+        
+        //API Anfrage Monat
+        this.getData();
 
         //Monate
-        document.querySelector(".monat").addEventListener("click", function(ev){
-            console.log(ev.target);
-        },false);
+        document.querySelector(".monat_auswahl").addEventListener("click", function(ev){
+                window.kalender.selectMonat(ev.target,"monat");
+            },
+            false);
 
         //Tage
         document.querySelector(".tabelle_tage").addEventListener("click", function(ev){
-            window.kalender.selectTag(ev.target);
-        },
-        false);
-
-        
+                window.kalender.selectTag(ev.target,"tag");
+            },
+            false);       
 
     }
 
-    kalenderHandler(ev){
-        console.log(ev);
+    getData(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() 
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                var myObj = JSON.parse(this.responseText);
+                // document.getElementById("test_text").innerHTML = myObj.text;
+                console.log(myObj);
+            }
+        };
+        xmlhttp.open("GET", "./php/data_day.php", true);
+        xmlhttp.send();
     }
+
+    static init(frame = "")
+    {
+        if(frame != "")
+        {
+            window.kalender = new Kalender();
+        }
+    }
+
+    // kalenderHandler(ev){
+    //     console.log(ev);
+    // }
 
     static isSchaltjahr = function(jahr = new Date().getFullYear()){
         
@@ -127,15 +147,20 @@ class Kalender{
         return (this.datum.getDay() + 6) % 7;
     }
 
-    selectTag(ev)
-    {        
-        this.setActiveTag(ev);
+    selectMonat(ev, suchText)
+    {
+        this.setActive(ev, suchText);
     }
 
-    setActiveTag(ev)
+    selectTag(ev, suchText)
+    {        
+        this.setActive(ev, suchText);
+    }
+
+    setActive(ev, suchText)
     {
         
-        this.unsetActiveTag();
+        this.unsetActive(suchText);
         
         if(ev)
         {
@@ -144,9 +169,19 @@ class Kalender{
 
     }
 
-    unsetActiveTag()
+    unsetActive(suchText)
     {
-        let arr_el = document.querySelectorAll(".tabelle_tag_text, .active");
+
+        switch(suchText){
+            case "tag":
+                suchText = ".tabelle_tag_text.active";
+                break;
+            case "monat":
+                suchText = ".monat.active";
+                break;
+        }
+
+        let arr_el = document.querySelectorAll(suchText);
 
         if(arr_el)
         {

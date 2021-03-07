@@ -1,7 +1,7 @@
     <script>
                 
-        window.kalender = new Kalender();
-
+        Kalender.init("kalender_frame");
+        
     </script>
 </body>
 </html>
