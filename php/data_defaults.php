@@ -16,7 +16,7 @@
         "Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"
     );
 
-    function getDataDate(){
+    function getData_Date(){
 
         $initDate = getDate();
 

@@ -13,218 +13,201 @@
 }
 
 * button {
+  border: 1px solid transparent;
+  outline: none;
   cursor: pointer;
+  background-color: whitesmoke;
+  -webkit-transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.kalender_frame {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 7fr;
-      grid-template-columns: 2fr 7fr;
-  margin: 0 auto;
-  max-width: 80%;
-  border-radius: 2rem;
-  -webkit-box-shadow: 2px 2px 10px lightgray;
-          box-shadow: 2px 2px 10px lightgray;
-}
-
-.kalender_frame .links {
-  background-color: green;
-  border-radius: 2rem 0 0 2rem;
-  padding: 1rem;
-}
-
-.kalender_frame .links * {
-  color: whitesmoke;
-}
-
-.kalender_frame .links .menu {
-  display: block;
-  height: 2rem;
-}
-
-.kalender_frame .links .tag {
-  display: block;
-  height: 6rem;
-}
-
-.kalender_frame .links .tag span {
-  display: block;
-  text-align: center;
-}
-
-.kalender_frame .links .tag .tag_nummer {
-  font-weight: bold;
-  font-size: 4rem;
-  height: 4rem;
-  line-height: 4rem;
-}
-
-.kalender_frame .links .tag .tag_wochentag {
-  text-transform: uppercase;
-  font-size: 2rem;
-  height: 2rem;
-  line-height: 2rem;
-}
-
-.kalender_frame .links .ubersicht {
-  padding: 1rem 0.5rem;
-}
-
-.kalender_frame .links .ubersicht .ubersicht_zeile {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
-}
-
-.kalender_frame .links .ubersicht .ubersicht_zeile div {
-  font-size: 0.8rem;
-}
-
-.kalender_frame .links .ubersicht .ubersicht_zeile div:last-child {
-  text-align: right;
-}
-
-.kalender_frame .links .befehle .befehl_zeile {
-  display: block;
-  text-align: right;
-  margin-top: 1rem;
-}
-
-.kalender_frame .links .befehle .befehl_zeile .befehl_btn {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 20rem;
-  border: 1px solid whitesmoke;
-  color: #b4b4b4;
-  background-color: green;
-  -webkit-transition: background-color 0.3s, color 0.3s, letter-spacing 0.3s;
-  transition: background-color 0.3s, color 0.3s, letter-spacing 0.3s;
-}
-
-.kalender_frame .links .befehle .befehl_zeile .befehl_btn:hover, .kalender_frame .links .befehle .befehl_zeile .befehl_btn:active {
-  background-color: green;
+* button:hover {
   color: white;
-  font-weight: bold;
+  background-color: #007d00;
+  border-color: black;
 }
 
-.kalender_frame .rechts {
-  background-color: whitesmoke;
-  border-radius: 0 2rem 2rem 0;
-  padding: 1rem;
-}
-
-.kalender_frame .rechts .jahr_auswahl {
-  text-align: right;
-}
-
-.kalender_frame .rechts .jahr_auswahl .jahr_minus, .kalender_frame .rechts .jahr_auswahl .jahr_plus {
-  height: 4rem;
-  width: 4rem;
-  font-size: 2rem;
-  border-radius: 5rem;
-  background-color: whitesmoke;
-  border: 3px solid transparent;
-  color: #c8c8c8;
-  -webkit-transition: background-color 0.3s, border 0.3s, color 0.3s;
-  transition: background-color 0.3s, border 0.3s, color 0.3s;
-  cursor: pointer;
-}
-
-.kalender_frame .rechts .jahr_auswahl .jahr_minus:hover, .kalender_frame .rechts .jahr_auswahl .jahr_plus:hover {
-  background-color: #d2d2d2;
-  border: #323232;
-  color: #323232;
-}
-
-.kalender_frame .rechts .jahr_auswahl .jahr_zahl {
-  font-size: 1.5rem;
-  margin: 0 1rem;
-  color: #b4b4b4;
-}
-
-.kalender_frame .rechts .monat_auswahl {
-  margin-top: 1rem;
-  padding: 0.5rem 0 0.3rem 0;
+.kalender {
   display: -ms-grid;
   display: grid;
-  gap: 0.2rem;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -ms-grid-rows: 1fr 2fr 6fr;
+      grid-template-rows: 1fr 2fr 6fr;
+      grid-template-areas: "k_day k_year" "k_day k_month" "k_day k_table";
+  min-width: 60%;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+  height: 500px;
+  -webkit-box-shadow: 5px 5px 10px lightgray;
+          box-shadow: 5px 5px 10px lightgray;
+  border-radius: 1rem;
+}
+
+.kalender .k_year {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: k_year;
+  text-align: right;
+  padding: 0.4rem;
+}
+
+.kalender .k_year button {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 100rem;
+  line-height: 1rem;
+  margin: 0 1rem;
+}
+
+.kalender .k_month {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: k_month;
+  display: -ms-grid;
+  display: grid;
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-  border-bottom: 2px solid #b4b4b4;
-}
-
-.kalender_frame .rechts .monat_auswahl .monat {
+  gap: 0.2rem;
   padding: 0.4rem;
-  border: none;
-  color: #b4b4b4;
-  -webkit-transition: background-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, color 0.3s;
-  cursor: pointer;
 }
 
-.kalender_frame .rechts .monat_auswahl .monat:hover, .kalender_frame .rechts .monat_auswahl .monat.active {
-  background-color: green;
-  color: whitesmoke;
+.kalender .k_table {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: k_table;
+  padding: 0.4rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 2rem auto;
+      grid-template-rows: 2rem auto;
 }
 
-.kalender_frame .rechts .woche_head {
+.kalender .k_table .table_head {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
+  padding: 0.4rem;
+  gap: 0.2rem;
 }
 
-.kalender_frame .rechts .woche_head span {
+.kalender .k_table .table_head span {
   display: block;
-  padding: 0.4rem;
   text-align: center;
-  font-weight: bold;
 }
 
-.kalender_frame .rechts .tabelle_tage {
+.kalender .k_table .table_days {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
-  -ms-grid-rows: (1fr)[6];
-      grid-template-rows: repeat(6, 1fr);
+  padding: 0.4rem;
   gap: 0.4rem;
 }
 
-.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag {
-  height: 3rem;
-  width: 3rem;
-  margin: 0 auto;
-}
-
-.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text {
+.kalender .k_table .table_days button {
+  padding: 0.4rem;
+  background-color: transparent;
+  min-width: 3rem;
   position: relative;
+  margin: 0 auto;
+  border-bottom: 1px solid transparent;
+}
+
+.kalender .k_table .table_days button.marker {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+
+.kalender .k_table .table_days button:hover {
+  background-color: green;
+}
+
+.kalender .k_day {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  grid-area: k_day;
+  background-color: #007d00;
+  padding: 0.4rem;
+  border-radius: 1rem 0 0 1rem;
+  min-width: 10rem;
+  padding: 1rem;
+}
+
+.kalender .k_day .k_day_head {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid white;
+}
+
+.kalender .k_day .k_day_head div {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  line-height: 3rem;
-  border-radius: 20rem;
-  -webkit-transition: background-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, color 0.3s;
-  cursor: pointer;
+  color: white;
 }
 
-.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text:hover, .kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text.active {
-  background-color: green;
-  color: whitesmoke;
+.kalender .k_day .k_day_head div:first-child {
+  font-size: 3rem;
 }
 
-.kalender_frame .rechts .tabelle_tage .tabelle_einzel_tag .tabelle_tag_text.marker::after {
-  display: block;
-  content: " ";
-  position: absolute;
-  top: 0.3rem;
-  right: -0.3rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: green;
+.kalender .k_day .k_day_content {
+  padding: 0.2rem;
+  min-height: 5rem;
+}
+
+.kalender .k_day .k_day_content .k_day_content_row {
+  text-align: right;
+}
+
+.kalender .k_day .k_day_content .k_day_content_row span {
+  color: white;
+  display: inline-block;
+}
+
+.kalender .k_day .k_day_content .k_day_content_row span:nth-child(2) {
+  min-width: 8rem;
+}
+
+.kalender .k_day .k_day_control {
+  padding: 0.2rem;
+  text-align: right;
+}
+
+.kalender .k_day .k_day_control button {
+  padding: 0.4rem;
+  -webkit-transition: letter-spacing 0.3s;
+  transition: letter-spacing 0.3s;
+}
+
+.kalender .k_day .k_day_control button:hover {
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 600px) {
+  .kalender {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 2fr 6fr auto;
+        grid-template-rows: 1fr 2fr 6fr auto;
+        grid-template-areas: "k_year" "k_month" "k_table" "k_day";
+    min-width: initial;
+    max-width: initial;
+    margin: 1rem auto;
+    height: initial;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    padding-top: 1rem;
+  }
+  .kalender .k_day {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: k_day;
+    background-color: #007d00;
+    padding: 0.4rem;
+    padding: 1rem;
+    border-radius: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

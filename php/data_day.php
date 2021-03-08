@@ -5,6 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $test = array(
     "text" => "Hallo",
+    "datum" => getDate(),
     "eintraege" => array(
         1 => "Termin 1",
         2 => "Termin 2",
@@ -12,7 +13,6 @@ $test = array(
     )
 );
 
-// echo json_encode("Hallo");
 echo json_encode($test);
 
 ?>
