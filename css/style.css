@@ -151,7 +151,7 @@
   color: white;
 }
 
-.kalender .k_day .k_day_head div:first-child {
+.kalender .k_day .k_day_head div#k_day_head_day {
   font-size: 3rem;
 }
 

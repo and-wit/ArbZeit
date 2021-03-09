@@ -1,8 +1,9 @@
 <div id="kalender" class="kalender">
     <div class="k_day">
         <div class="k_day_head">
-            <div id="k_day_head_day">28</div>
-            <div id="k_day_head_weekday">Donnerstag</div>
+            <div id="k_day_head_month"></div>
+            <div id="k_day_head_day"></div>
+            <div id="k_day_head_weekday"></div>
         </div>
 
         <div class="k_day_content">

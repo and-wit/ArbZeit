@@ -7,19 +7,24 @@ class KalenderView{
         this.frame = frame;
     }
 
-    render()
+    render(dateInfos)
     {
-        this.renderYear();
-        this.renderMonth();
-        this.renderDay();
+
+        console.log(dateInfos);
+
+        this.renderYear(dateInfos);
+        this.renderMonth(dateInfos);
+        this.renderDay(dateInfos);
+        this.renderTableDays(dateInfos);
+
     }
 
-    renderYear()
+    renderYear(dateInfos)
     {
-        document.getElementById("k_year_text").innerHTML = window.kalender.year;
+        document.getElementById("k_year_text").innerHTML = dateInfos.year;
     }
 
-    renderMonth()
+    renderMonth(dateInfos)
     {
         let el = document.querySelector(".k_month button.active");
         
@@ -28,14 +33,14 @@ class KalenderView{
             el.classList.remove("active");
         }
 
-        let query = 'button[data-month="' + window.kalender.month + '"]';
+        let query = '.k_month button[data-month="' + dateInfos.month + '"]';
 
         document.querySelector(query).classList.add("active");
     }
 
-    renderDay()
+    renderDay(dateInfos)
     {
-        let dateInfos = window.kalender.getDateInfos();
+        document.getElementById("k_day_head_month").innerHTML = dateInfos.month_long;
 
         if(dateInfos.date < 10)
         {
@@ -49,8 +54,31 @@ class KalenderView{
         document.getElementById("k_day_head_weekday").innerHTML = dateInfos.weekday_text;
     }
 
-    renderTableDays()
+    renderTableDays(dateInfos)
     {
+
+        let arr_days = document.querySelectorAll(".table_days button");
+
+        // console.log(arr_days);
+        let index = 0;
+
+        for(let i = 1; i <= dateInfos.offset_before; i++)
+        {
+            arr_days[index].innerHTML = "&nbsp;";
+            index++;
+        }
+
+        for(let j = 1; j <= dateInfos.days_in_month; j++)
+        {
+            arr_days[index].innerHTML = j;
+            index++;
+        }
+
+        for(let k = 1; k <= dateInfos.offset_after; k++)
+        {
+            arr_days[index].innerHTML = "&nbsp;";
+            index++;
+        }
 
     }
 }

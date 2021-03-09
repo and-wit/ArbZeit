@@ -137,13 +137,15 @@ $color_green: rgb(0, 125, 0);
 
       div{
         text-align: center;
-
-        &:first-child{
+        color: white;
+  
+        &#k_day_head_day{
           font-size: 3rem;
         }
-
-        color: white;
+  
       }
+
+      
 
     }
 
