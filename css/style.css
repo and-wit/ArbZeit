@@ -121,12 +121,21 @@
   border-bottom: 1px solid transparent;
 }
 
-.kalender .k_table .table_days button.marker {
-  background-color: rgba(0, 128, 0, 0.3);
-}
-
 .kalender .k_table .table_days button:hover {
   background-color: #007d00;
+}
+
+.kalender .k_table .table_days button.empty {
+  cursor: default;
+}
+
+.kalender .k_table .table_days button.empty:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.kalender .k_table .table_days button.marker {
+  background-color: rgba(0, 128, 0, 0.3);
 }
 
 .kalender .k_day {
