@@ -1,6 +1,6 @@
     <script>
                 
-        Kalender.init("kalender_frame");
+        Kalender.init("kalender");
         
     </script>
 </body>

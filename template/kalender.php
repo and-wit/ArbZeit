@@ -1,40 +1,57 @@
-<div class="kalender">
+<div id="kalender" class="kalender">
     <div class="k_day">
         <div class="k_day_head">
-            <div>28</div>
-            <div>Donnerstag</div>
+            <div id="k_day_head_day">28</div>
+            <div id="k_day_head_weekday">Donnerstag</div>
         </div>
 
         <div class="k_day_content">
             <div class="k_day_content_row">
                 <span>
-                    Arbeitszeit 
+                    Tag 
                 </span>
-                <span>
+                <span id="k_day_content_row_time_day">
                     7:25 Std.
+                </span>
+            </div>
+            <div class="k_day_content_row">
+                <span>
+                    Woche
+                </span>
+                <span id="k_day_content_row_time_week">
+                    27:25 Std.
+                </span>
+            </div>
+            <div class="k_day_content_row">
+                <span>
+                    Monat
+                </span>
+                <span id="k_day_content_row_time_month">
+                    127:25 Std.
                 </span>
             </div>
 
         </div>
 
         <div class="k_day_control">
-            <button>Details</button>
+            <button id="k_day_control_details_button">Details</button>
         </div>
     </div>
 
     <div class="k_year">
-        <button><</button>
-        <span>2021</span>
-        <button>></button>
+        <button id="k_year_prev_button"><</button>
+        <span id="k_year_text">2021</span>
+        <button id="k_year_next_button">></button>
     </div>
 
     <div class="k_month">
         <?php 
         
-            foreach($arr_month_short as $month)
+            for($i = 0; $i < 12; $i++)
             {
-                echo "<button>$month</button>";
+                echo '<button class="" data-month="' . $i . '">' . $arr_month_short[$i] . "</button>";
             }
+            
         
         ?>
     </div>
@@ -57,14 +74,8 @@
                 
                 for($i = 0; $i < 42; $i++)
                 {
-                    if($i % 2 === 0)
-                    {
-                        echo '<button class="marker">' . $i . '</button>';
-                    }
-                    else
-                    {
-                        echo "<button>" . $i . '</button>';
-                    }
+                    // echo '<button data-day="'. $i .'" class="marker">' . $i . '</button>';
+                    echo '<button class="" data-day="0" >0</button>';
                 }
         
             ?>

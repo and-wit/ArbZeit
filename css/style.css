@@ -21,6 +21,11 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
+* button.active {
+  background-color: #007d00;
+  color: white;
+}
+
 * button:hover {
   color: white;
   background-color: #007d00;
@@ -121,7 +126,7 @@
 }
 
 .kalender .k_table .table_days button:hover {
-  background-color: green;
+  background-color: #007d00;
 }
 
 .kalender .k_day {
@@ -132,7 +137,7 @@
   background-color: #007d00;
   padding: 0.4rem;
   border-radius: 1rem 0 0 1rem;
-  min-width: 10rem;
+  height: 100%;
   padding: 1rem;
 }
 
@@ -152,11 +157,12 @@
 
 .kalender .k_day .k_day_content {
   padding: 0.2rem;
-  min-height: 5rem;
+  min-height: 8rem;
 }
 
 .kalender .k_day .k_day_content .k_day_content_row {
   text-align: right;
+  padding: 0.2rem;
 }
 
 .kalender .k_day .k_day_content .k_day_content_row span {
@@ -204,7 +210,6 @@
     -ms-grid-row: 4;
     -ms-grid-column: 1;
     grid-area: k_day;
-    background-color: #007d00;
     padding: 0.4rem;
     padding: 1rem;
     border-radius: 0;
