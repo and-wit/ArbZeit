@@ -48,7 +48,7 @@ class Kalender{
         this.frame = document.getElementById(frame);
         this.view = new KalenderView(this.frame);
 
-        this.setDateInfos(new Date(2021, 0, 31));
+        this.setDateInfos();
         this.setKalenderHandler();
         this.view.render(
             this.getDateInfos()
@@ -82,7 +82,7 @@ class Kalender{
             
             if(ev.target.nodeName == "BUTTON" && ev.target.dataset.day != "0")
             {
-                window.kalender.click(ev.target.dataset.day);
+                window.kalender.clickTableDay(ev.target.dataset.day);
             }
             
         },true);
@@ -110,6 +110,15 @@ class Kalender{
         this.view.render(
             this.getDateInfos()
         );
+    }
+
+    clickTableDay(day)
+    {
+        this.date = parseInt(day);
+        this.view.render(
+            this.getDateInfos()
+        );
+        
     }
 
     clickDetails()

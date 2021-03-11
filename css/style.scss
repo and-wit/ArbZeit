@@ -105,31 +105,32 @@ $color_green: rgb(0, 125, 0);
         min-width: 3rem;
         position: relative;
         margin: 0 auto;   
-        border-bottom: 1px solid transparent;
+        border: 1px solid transparent;
+        transition: background-color 0.3s, border-color 0.3s;
 
         &:hover{
           background-color: $color_green;
-        }
-
-        &.empty{
-          cursor: default;
-          
-          &:hover{
-            background-color: transparent;
-            border-color: transparent;
-          }
-        }
+          border-color: black;
+          color: whitesmoke;
+        }       
 
         &.marker{
-          background-color: rgba(0, 128, 0, 0.3);
+          background-color: rgba(0, 128, 0, 0.3);          
         }
-        
-        
+
+        &.entry{
+          background-color: $color_green;
+          color: whitesmoke;
+        }
 
       }
 
-    }
+      .empty{
+        cursor: default;
+        visibility: hidden;
+      }
 
+    }
 
   }
 

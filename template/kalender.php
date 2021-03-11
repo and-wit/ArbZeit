@@ -76,7 +76,7 @@
                 for($i = 0; $i < 42; $i++)
                 {
                     // echo '<button data-day="'. $i .'" class="marker">' . $i . '</button>';
-                    echo '<button class="" data-day="0" >0</button>';
+                    echo '<button class="" data-day="0">0</button>';
                 }
         
             ?>
